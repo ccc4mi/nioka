@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="static/1.css">
+    <link rel="icon" href="static/fleur.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/uo236d3fimbi882xw80on4aik8nfyb72zffs14pklcpj078m/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#contenido',
+            plugins: 'image code',
+            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code',
+            menu: {
+                edit: { title: 'Edit', items: 'undo, redo, selectall' }
+              }
+        });
+    </script>
+</head>
+<body>
+
+    <!--Móvil-->
+    <button id="menu-toggle" class="hamburger-menu">
+        ☰
+    </button>
+
+    <nav id="mobile-menu" class="hidden">
+        <ul>
+            <li><a href="{{ url_for('inicio') }}">Home</a></li>
+            <li><a href="{{ url_for('mensajes') }}">Mensajes</a></li>
+            <li><a href="{{ url_for('feed') }}">Feed</a></li>
+            
+            
+        </ul>
+    </nav>
+    
+    <div class="mobile-logo">
+        <a href="{{url_for('inicio')}}">
+            <img src="static/logo1.png" alt="Logo">
+        </a>
+    </div>
+
+    <!--Desktop-->
+    <div class="bg">
+        <div class="overlay"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="{{url_for('inicio')}}">
+                <img src="static/logo1.png"  alt="Logo">
+            </a>
+        </div>
+        <ul class="navbar-menu">
+            <li class="alt-msj">
+                <a href="{{ url_for('mensajes') }}">
+                    <img src="static/msj.png" id="msj" alt="Mensajes" height="18">
+                </a>
+            </li>
+            <li class="alt-feed">
+                <a href="{{url_for ('feed')}}">
+                    <img src="static/feed.png" id="feed" alt="feed" height="18">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <img id="chicas" src="static/chicas1.png">
+   
+    <div class="editor">
+        <h2>Crear nueva entrada</h2>
+        <form method="POST">
+            <input type="text" name="titulo" id="title" placeholder="Título" required>
+            <textarea id="contenido" name="contenido"></textarea>
+            <button type="submit" class="guardar" >Guardar Entrada</button>
+        </form>
+    </div>
+    
+    <script src="static/1.js"></script>
+</body>
+</html>

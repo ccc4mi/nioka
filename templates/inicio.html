@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}ccc4.mi{% endblock %}
+
+{% block content %}
+    <!--Móvil-->
+    <button id="menu-toggle" class="hamburger-menu">
+        ☰
+    </button>
+
+    <nav id="mobile-menu" class="hidden">
+        <ul>
+            <li><a href="{{ url_for('feed') }}">Feed</a></li>
+            <li><a href="{{ url_for('iniciarSesion') }}">Iniciar Sesión</a></li>
+            <li><a href="https://www.instagram.com/ccc4.mi/">Contacto</a></li>
+            
+        </ul>
+    </nav>
+    
+    <div class="mobile-logo">
+        <a href="{{url_for('inicio')}}">
+            <img src="static/logo1.png" alt="Logo">
+        </a>
+    </div>
+
+    <div class="disclaimer">
+        <p>Para una mejor experiencia visualice este sitio web en computadora :P<p>
+    </div>
+
+    <!--Desktop-->
+
+    <div class="drag-container">
+        <form class="note-form" action="{{ url_for('inicio') }}" method="post">
+            <label for="texto"></label>
+            <textarea id="texto" name="texto" required></textarea>
+            <button type="submit">
+        </form>
+    </div>
+
+
+    <a href="{{ url_for('iniciarSesion') }}" class="drag-link">
+        <div class="drag-item" style="top: 60%; left: 1%;">
+            <img class="drag-image" id="Llaves" src="static/llaves.png" alt="Imagen para Arrastrar">
+            <div class="title" id="tllaves">Iniciar Sesión</div>
+        </div>
+    </a>
+    
+    <a href="{{ url_for('inicio') }}" class="drag-link">
+        <div class="drag-item" style="top: 6%; left: 3%;">
+            <img class="drag-image" id="logo" src="static/logo.png" alt="Logo">
+        </div>
+    </a>
+    
+    <div class="drag-item" style="top: 11%; left: 16%;">
+        <img class="drag-image" id="Encendedor" src="static/encendedor.png" alt="Imagen para Arrastrar">
+    </div>
+    
+    <a href="https://www.instagram.com/ccc4.mi/" class="drag-link">
+        <div class="drag-item" style="top: 32%; left: 82%;">
+            <img class="drag-image" id="m1pe" src="static/1pe.png" alt="Imagen para Arrastrar">
+            <div class="title" id="tm1pe">Contacto</div>
+        </div>
+    </a>
+    
+    <a href="{{ url_for('feed') }}" class="drag-link">
+        <div class="drag-item" style="top: 45%; left: 67%;">
+            <img class="drag-image" id="m50c" src="static/50c.png" alt="Imagen para Arrastrar">
+            <div class="title" id="tm50c">Feed</div>
+        </div>
+    </a>
+    
+    <div class="drag-item" style="top: 50%; left: 85%;">
+        <img class="drag-image" id="m25c" src="static/25c.png" alt="Imagen para Arrastrar">
+    </div>
+    
+   
+    
+
+
+    <div class="Texto">
+        Lorem ipsum odor amet, consectetuer adipiscing elit. Non convallis ullamcorper est nisl; bibendum orci tellus malesuada. Egestas mauris aptent curabitur cubilia sapien placerat mauris purus. Fames enim dui nam ridiculus amet sodales efficitur. Nisl malesuada enim curabitur; parturient pretium maecenas aenean urna. Viverra ex volutpat nam ad at sagittis. Tortor dis aenean curae dignissim aptent curae rhoncus. Diam in dolor, maximus aliquet gravida lorem. Hac ultricies tortor fames suscipit, nisl maecenas augue.
+
+        Nascetur fames curae eget ridiculus vel. Ornare ultrices dui luctus penatibus turpis ex magna consequat. Dis interdum imperdiet lobortis facilisis elit feugiat donec. Vestibulum purus in nullam mus placerat. Molestie per libero risus quam nullam vehicula. Pulvinar mattis habitasse felis ridiculus ultrices venenatis consequat varius amet.
+        
+        Maecenas tempus venenatis blandit platea curabitur, maximus odio sit. Sit laoreet tincidunt pharetra faucibus posuere consectetur, molestie dictum. Lectus neque lorem est habitasse; metus tristique senectus montes. Risus mi dapibus ac hac dui elit primis euismod. Sagittis congue tellus non, nisl libero mauris et maximus. Fusce diam posuere augue gravida purus. Leo elit velit ut ipsum tortor habitasse orci enim inceptos. Penatibus mauris consectetur elementum elementum proin blandit praesent phasellus.
+        
+        Turpis iaculis commodo quisque consequat suspendisse bibendum consequat amet aliquam. Nulla torquent condimentum ipsum, consequat dignissim himenaeos? Ex elit eleifend aliquet viverra; purus aliquam. Neque volutpat enim nisi mattis efficitur sem? Consectetur mollis eu dictumst elementum purus. Lacus accumsan justo inceptos bibendum mus integer senectus congue. Curabitur eu vitae condimentum natoque nibh ipsum natoque! Mollis varius elit dignissim ipsum a. Donec magnis efficitur purus, sociosqu aptent duis. Vivamus nibh dolor aliquam volutpat iaculis nostra felis.
+        
+        Libero senectus platea risus suspendisse velit eget. Porttitor semper eros cubilia pellentesque primis. Nam ullamcorper metus consectetur lobortis congue per. Tempor at vulputate nec eleifend nascetur ad metus suscipit? Cursus condimentum sollicitudin tristique fringilla augue montes amet? Massa tellus commodo quisque maximus ullamcorper, accumsan sodales cras. In platea taciti nisl quis natoque et feugiat tristique.
+        
+        Sed taciti consectetur leo massa non molestie. At auctor vivamus cubilia blandit felis ultrices adipiscing. Pharetra convallis velit parturient aptent tincidunt varius. Adipiscing laoreet sed sem tellus suscipit dui. Magna nullam nibh sit nostra mus. Accumsan nostra mi aptent volutpat diam ex adipiscing? Laoreet laoreet fringilla curabitur finibus; habitant integer lobortis sapien pulvinar.
+        
+        Sed pharetra phasellus vulputate nullam finibus tempor vulputate lacus. Justo suscipit fusce auctor phasellus, fames felis interdum nec placerat. Quis mauris leo purus eu odio faucibus curae maximus malesuada. In tristique maecenas luctus cursus pulvinar fusce. Himenaeos sodales nam dis cubilia vivamus cursus. Torquent pellentesque lectus cras condimentum litora. At eleifend luctus inceptos ad urna. Eleifend tristique donec accumsan gravida placerat condimentum. Taciti dignissim eget nunc dapibus tincidunt; sociosqu nunc. Mus malesuada curabitur sem conubia potenti porttitor cubilia laoreet vulputate.
+        
+        Accumsan sagittis nisi maecenas orci molestie litora parturient nulla. Tincidunt ullamcorper curae lobortis placerat sem eros facilisi ultricies. Penatibus ipsum parturient; sit nascetur volutpat tortor. Eu aenean netus rhoncus parturient eros consectetur. Velit elementum sociosqu curabitur ligula lectus condimentum finibus per nisi. Facilisis ut tristique facilisi dui cubilia montes. Tristique posuere class phasellus mi netus fames vel. Nisi senectus erat nam iaculis enim lacus. Lacus mattis ad maecenas amet lectus.
+        
+        Maecenas odio taciti nibh dictumst proin. Proin nisl quam auctor, nascetur varius integer mattis. Justo montes mi sed parturient non a ac non. Vitae amet magna nisi mauris fermentum porta curabitur lobortis. Consequat sodales adipiscing nunc lectus pharetra condimentum hac cursus ex. Adipiscing cras commodo leo arcu blandit est diam. Porttitor non proin vehicula; justo a rhoncus? Lacinia libero leo molestie ac posuere nullam facilisis adipiscing himenaeos?
+        
+        Fringilla class tempus ornare hendrerit taciti fermentum blandit mus mollis. Pretium eu blandit netus gravida donec. Et accumsan pretium mus ligula phasellus nulla tempor nibh. Lacus magnis dolor venenatis sagittis lacus. Volutpat ridiculus vestibulum arcu facilisis ultricies nunc magna. Vitae scelerisque himenaeos auctor nisi nascetur eu torquent conubia.
+        
+        Porttitor mus aliquet ac nibh dignissim taciti in. Rutrum diam malesuada facilisi eleifend arcu. Facilisis dignissim posuere vivamus platea eget. Molestie proin neque tellus neque, euismod tellus sapien. Porttitor purus ad adipiscing consequat proin viverra odio. Malesuada nostra a massa euismod, dis imperdiet enim. Lectus porta accumsan egestas tempus lacus quam. Sed velit inceptos justo ligula netus purus in. Sodales interdum consequat mauris, quis aliquet semper.
+        
+       
+        
+        
+       
+    </div>
+
+      
+    <div class="scrollable-window">
+        {% for entrada in entradas %}
+            <div class="entrada">
+                <h2>{{ entrada.titulo }}</h2>
+                <p>{{ entrada.contenido|safe }}</p>
+                <div class="stat">
+                    <p class="entryuser"><small>Publicado por {{ entrada.user_id }}</small></p>
+                    <p class="entrydate"><small>{{ entrada.fecha.strftime('%d-%m-%Y %H:%M') }}</small></p>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+    
+
+

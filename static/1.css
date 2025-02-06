@@ -1,0 +1,826 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    cursor: url('cursor.png') 16 16, auto; 
+    display: flex;
+    font-family: 'Archivo', 'Roboto';
+    flex-direction: column; /* Alinea los hijos en columna */
+    
+}
+
+.bg {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, #ffffff 0%, #f0f0f0 5%, #ffffff 70%, #ffffff 100%);
+    -webkit-animation: AnimateBG 30s ease infinite;
+    animation: AnimateBG 30s ease infinite;
+}
+
+@-webkit-keyframes AnimateBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+  
+@keyframes AnimateBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('wave.png'); 
+    opacity: 0.2; 
+    pointer-events: none; 
+    animation: animateTexture 60s linear infinite; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@keyframes animateTexture {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2.05) ;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 70px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box; 
+    flex-wrap: wrap; 
+    overflow: hidden; 
+    z-index: 3000;
+}
+
+
+.navbar-logo img {
+    height: 16px;
+    left: -20%;
+    top:-20px;
+    position: relative;
+}
+
+.navbar-logo:hover img {
+    transform: scale(1.05); 
+    content: url('logo_alt.png');
+}
+
+
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; 
+    position: relative;
+    top: -50px;
+    left: 50px;
+}
+
+.navbar-menu li {
+    margin-left: 10px;
+    margin-top: 40px;
+    
+}
+
+.navbar-menu a {
+    color: #bbb;
+    text-decoration: none;
+    padding: 0px 3px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.navbar-menu a:hover {
+    color: #333;
+}
+
+.alt-msj:hover img{
+    transform: scale(1.1); 
+    content: url('msj_alt.png');
+}
+
+.alt-feed:hover img{
+    transform: scale(1.1);
+    content: url('feed_alt.png');
+}
+
+
+.alt-ig:hover img{
+    transform: scale(1.1); 
+    content: url('IG_alt.png');
+}
+
+
+
+
+.alt-user:hover img{
+    transform: scale(1.1); 
+    content: url('user_alt.png');
+}
+
+.my-custom-cursor {
+    cursor: url('hover_cursor.png') 16 16, auto;
+}
+
+
+.drag-image {
+    position: absolute;
+    z-index: 10;
+}
+
+.drag-image.dragging {
+    z-index: 1000; /* Un z-index alto mientras se arrastra */
+}
+
+
+
+#chicas {
+    position: absolute;
+    top: 65%; 
+    left: 77%; 
+    max-width: 347px;
+    max-height: 338px;
+}
+
+
+@font-face {
+    font-family: 'NK';
+    src: url('nokiafc22.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nokia';
+    src: url('NokiaKokia.ttf') format('truetype');
+}
+
+/*--------------------------concepto----------------------------*/
+.Texto{
+    position: absolute;
+    top: 9%;
+    left: 3.2%;
+    z-index: 0;
+    font-family: Arial, sans-serif;
+    font-size:large;
+    font-weight:100;
+    text-align: justify;
+    color: #b6b5a0;
+    max-width: 93.6%;
+    max-height: 95%;
+
+}
+
+/*--------------------------objetos----------------------------*/
+
+.drag-item {
+    position: absolute;
+}
+
+/* Las imágenes dentro del contenedor */
+.drag-image {
+    z-index: 10;
+}
+
+/* Estilos para los títulos */
+.title {
+    position: relative;
+    margin-top: -10%;
+    transform: translateX(-50%); 
+    background-color: transparent;
+    color: rgb(27, 24, 64);
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 20;
+}
+
+/* Posicionamiento específico para cada imagen */
+#logo {
+    top: 6%;
+    left: 3%;
+    cursor: url('drag_cursor.png') 16 16, move;
+    max-width: 239px;
+    max-height: 50px;
+}
+
+#Llaves {
+    position: relative;
+    top: 60%;
+    left: 1%;
+    cursor: url('drag_cursor.png') 16 16, move;
+    max-width: 239px;
+    max-height: 394px;
+}
+
+#tllaves{
+    position:relative;
+    left: 90%;
+}
+
+#Encendedor {
+    top: 11%;
+    left: 16%;
+    cursor: url('drag_cursor.png') 16 16, move;
+    max-width: 789px;
+    max-height: 420px;
+}
+
+#m1pe {
+    position: relative;
+    top: 32%;
+    left: -2%;
+    cursor: url('drag_cursor.png') 16 16, move;
+    max-width: 201px;
+    max-height: 201px;
+}
+
+#tm1pe{
+    position:relative;
+    left: 85%;
+}
+
+#m50c {
+    position: relative;
+    top: 45%;
+    left: -17%;
+    cursor: url('drag_cursor.png') 16 16, move;
+    max-width: 325px;
+    max-height: 325px;
+}
+
+#tm50c{
+    position:relative;
+    left: 80%;
+}
+
+#m25c {
+    top: 50%;
+    left: 85%;
+    cursor: url('drag_cursor.png') 16 16, move;
+    max-width: 501px;
+    max-height: 501px;
+}
+
+
+
+.drag-container {
+    background: url('nokiapng3.png') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 60%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    cursor: url('drag_cursor.png') 16 16, move;
+    max-width: 164px;
+    max-height: 380px;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    z-index: 200;
+}
+
+.drag-container.dragging {
+    z-index: 1000; 
+}
+
+.note-form {
+    background: url('on.gif') no-repeat center;
+    position: absolute;
+    top:21.2%;
+    left: 2.9%;
+    border: #333;
+    color: #3333335a;
+    padding: 20px;
+    max-width: 112px; 
+    max-height: 83px;
+    width: 100%; 
+    height: 100%;
+    z-index: 2000;
+    
+}
+
+
+
+.note-form label {
+    margin-bottom: 10px;
+    font-size: small;
+    font-weight: bold;
+    font-family: "Outfit", sans-serif;
+    font-weight: 1000;
+}
+
+.note-form textarea {
+    height:80%;
+    width:95%; 
+    padding: 5px;
+    border: none;
+    resize: none;
+    background-color: #ffffff00; 
+    font-size: 12px;
+    color: #333333cf;
+    font-family: "NK", sans-serif;
+    outline: none;
+    z-index:300;
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+    
+}
+
+.note-form button {
+    background: url('button.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 95.9%;
+    left:28.7%;
+    width: 65px;
+    height: 17px;
+}
+
+.note-form button:hover {
+    opacity: 1;
+    transform: scale(1.07);
+}
+
+.container{
+    max-width: 600px;
+    height: auto;
+    margin: 50px auto;
+    padding: 30px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    background:#4a4b63d6;
+    border-radius: 10px;
+    position: absolute;
+    top: 40%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color:#ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+    outline: none;
+}
+
+input[type="text"],
+[type="password"] {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #45454595;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 7px;
+    background-color: #cbcbcb;
+    color: #504d4c;
+    font-size: 14px;
+    outline: none;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 7px;
+    margin-top: 5px;
+    background-color: #152231bd;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 5px -3px #474747;
+    font-family:"Roboto",sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input[type="submit"]:hover{
+    background-color: #1b1c5e6f;
+
+}
+.msj{
+    background:#47474796;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+
+}
+
+.mensaje-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.mensaje-checkbox {
+    margin-right: 10px; /* aumentar o disminuir la separación */
+}
+
+.mensaje-texto {
+    flex-grow: 1;
+}
+
+.mensaje-fecha {
+    margin-left: 10px;
+    color: gray;
+    font-size: 0.9em;
+}
+/*--------------------------contenido scroleable - Feed ----------------*/
+.scrollable-window {
+    position: absolute;
+    top: 10%;
+    left:27.5%;
+    width: 45%;
+    height: 100%; 
+    overflow-y: scroll;
+    border: none;
+    padding: 0px;
+    font-family: "Archivo", sans-serif;
+    font-size: medium;
+    color: #333;
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+}
+
+.scrollable-window img {
+    display: block;
+    max-width:100%;
+    max-height: min-content;
+    margin-bottom: 10px;
+}
+
+.scrollable-window::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stat p {
+    margin: 0; /* sacar los márgenes predeterminados de los párrafos */
+}
+
+.stat p small {
+    font-size: 12px; 
+    color: #3333339d;
+}
+
+.scroll-to-top {
+    display: block;
+    position: absolute;
+    bottom: 2% ;
+    right: 2% ;
+    background-color: transparent;
+    color: transparent;
+    border:none;
+    z-index: 99999;
+    padding: 20px;
+    width: 60px;
+    height: auto;
+    font-size: 24px;
+}
+
+
+.scroll-to-top img {
+    width: 50px; /* Ajusta el tamaño del SVG */
+    height: auto; /* Mantiene la proporción */
+    transition: transform 0.3s ease; /* Efecto suave al pasar el mouse */
+}
+
+.scroll-to-top:hover img {
+    transform: scale(1.1); /* Efecto de "zoom" al pasar el mouse */
+}
+
+/*--------------------User menu------------------*/
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #FAF3EF, #FFFFFF);
+    width: 150px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.custom-button img {
+    width: 80px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.custom-button span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #746763;
+    display: block;
+}
+
+.custom-button:hover {
+    background: linear-gradient(45deg, #ece3df, #dcdcdc);
+    color: #424243;
+    border-color: #424243;
+}
+
+/*-----------------WYSIWYG---------------------*/
+
+.editor {
+    position: absolute;
+    top: 10%;
+    left: 27.5%;
+    width: 45%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow: auto;
+    border: none;
+    color: #4A4B63;
+}
+
+#title{
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding:10px;
+    width: 100%;
+}
+
+.formu {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border:none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+
+#editor {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    min-height: 300px;
+    background-color: #fff;
+}
+
+.guardar{
+    display:block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4A4B63;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.guardar:hover {
+    background-color: #555556;
+}
+
+
+
+/*---------------------Móvil----------------------*/
+/* Botón hamburguesa */
+
+.hamburger-menu{
+    display: none;
+}
+
+#mobile-menu{
+    display: none;
+}
+
+.mobile-logo {
+    display: none;
+}
+
+.disclaimer{
+    display: none;
+}
+
+
+/* Mostrar el botón en pantallas pequeñas */
+@media (max-width: 768px) {
+    
+    .hamburger-menu {
+        position: absolute;
+        top: 2.5%;
+        right: 15px; 
+        font-size: 25px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        transition: transform 0.3s ease;
+        color: #4A4B63;
+        
+    }
+    
+    #mobile-menu {
+        position: absolute;
+        top: 0;
+        right: -250px;
+        width: 40%;
+        max-width: 250px;
+        height: 100%;
+        background-color: #4A4B63;
+        color: white;
+        font-weight: bold;
+        padding: 20px;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+        transition: right 0.3s ease; /* Animación de deslizamiento desde la derecha */
+        z-index: 1000;
+    }
+    
+    #mobile-menu ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 50px; 
+    }
+    
+    #mobile-menu li {
+        margin: 20px 0;
+    }
+    
+    #mobile-menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .hamburger-menu {
+        display: block; /* Mostrar el botón en móviles */
+    }
+
+    .drag-image { /* Ocultar elementos drag en versión móvil */
+        display: none;
+    }
+
+    /* Mostrar el menú móvil al activarse */
+    #mobile-menu.active {
+        right: 0; /* Deslizar el menú hacia la pantalla */
+        display: block;
+    }
+
+    /* Animación de rotación del ícono */
+    .hamburger-menu.active {
+        transform: rotate(90deg);
+        color: #FFFFFF;
+    }
+}
+
+@media (max-width: 768px) {
+    .drag-image { 
+        display: none;  /* Ocultar todos los elementos drag y drop */
+    }
+
+    .drag-item{
+        display: none;
+    }
+
+    .title{
+        display: none;
+    }
+
+    #logo {
+        display: none
+    }
+
+    .Texto{
+        display: none; /* Ocultar el texto */
+    }
+
+    .disclaimer{
+        display: block;
+        position:absolute;
+        top: 90%;
+        left: 4.5%;
+        font-family: Arial, sans-serif;
+        font-size:medium;
+        font-weight:100;
+        text-align: center;
+        color: #b6b5a0;
+        max-width: 90%;
+    }
+
+    .mobile-logo {
+        display: block;
+        position: absolute;
+        top: 3.5%;  /* Ajusta la posición vertical */
+        left: 6%; /* Ajusta la posición horizontal */
+        z-index: 999; /* Asegura que el logo esté encima de otros elementos */
+    }
+
+    /* Puedes ajustar el tamaño del logo para la versión móvil */
+    .mobile-logo img {
+        width: 130px;  /* Ajusta el tamaño del logo para móvil */
+    }
+
+
+    .drag-container{
+        top:55%
+    }   
+
+    .navbar{
+        display: none;
+    }
+
+    .container{
+        max-width:max-content;
+        min-width: 60%;
+        max-height: fit-content;
+    }
+
+    .editor{
+        position: absolute;
+        top: 15%;
+        left: 8%;
+        max-width: max-content;
+        min-width: 80%;
+        
+    }
+    #chicas{
+        position: absolute;
+        top: 82%; 
+        left: 55%; 
+        max-width: 50%;
+        max-height: auto;
+    }
+
+
+        /*--------------------------contenido scroleable - Feed ----------------*/
+    .scrollable-window {
+        position: absolute;
+        top: 8%;
+        left: 10%;
+        width: 80%;
+        max-height: 87%; 
+        overflow-y: scroll;
+        border: none;
+        padding: 0px;
+        font-family: "Roboto", sans-serif;
+        scrollbar-width: none; /* Para Firefox */
+        -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+    }
+
+}
