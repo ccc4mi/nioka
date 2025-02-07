@@ -77,6 +77,96 @@ body, html {
     }
 }
 
+/*----------------------Bienvenida------------------------*/
+/* Estilos del Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #F8F2F2;
+    padding: 0px;
+    border-radius: 20px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.carousel-image {
+    display: none;
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+.carousel-image.active {
+    display: block;
+}
+
+.carousel-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.carousel-buttons button {
+    background:transparent;
+    color: #3333339d;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50px;
+}
+
+.carousel-buttons button:hover {
+    color: #0755AA;
+}
+
+#prevBtn {
+    margin-right: 10px; /* Espacio entre el botón izquierdo y el botón derecho */
+}
+
+#nextBtn {
+    margin-left: 10px; /* Espacio entre el botón derecho y el botón izquierdo */
+}
+
+.accept-btn {
+    background:transparent;
+    color: #3333339d;
+    padding: 15px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.accept-btn:hover {
+    background:transparent;
+    color: #28a745;
+}
+/*--------------------------Navbar---------------------*/
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -95,7 +185,8 @@ body, html {
 .navbar-logo img {
     height: 16px;
     left: -20%;
-    top:-20px;
+    top:5%;
+    display: block;
     position: relative;
 }
 
@@ -227,9 +318,10 @@ body, html {
     margin-top: -10%;
     transform: translateX(-50%); 
     background-color: transparent;
-    color: rgb(27, 24, 64);
+    color: #f2f2f2;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 200;
     font-family: Arial, Helvetica, sans-serif;
     z-index: 20;
 }
@@ -474,7 +566,7 @@ input[type="submit"]:hover{
     top: 10%;
     left:27.5%;
     width: 45%;
-    height: 100%; 
+    height: 85%; 
     overflow-y: scroll;
     border: none;
     padding: 0px;
@@ -512,8 +604,8 @@ input[type="submit"]:hover{
 }
 
 .scroll-to-top {
-    display: block;
-    position: absolute;
+    display: none;
+    position: fixed;
     bottom: 2% ;
     right: 2% ;
     background-color: transparent;
@@ -659,6 +751,7 @@ input[type="submit"]:hover{
 }
 
 
+
 /* Mostrar el botón en pantallas pequeñas */
 @media (max-width: 768px) {
     
@@ -802,7 +895,7 @@ input[type="submit"]:hover{
     #chicas{
         position: absolute;
         top: 82%; 
-        left: 55%; 
+        left: 48%; 
         max-width: 50%;
         max-height: auto;
     }
@@ -823,4 +916,10 @@ input[type="submit"]:hover{
         -ms-overflow-style: none; /* Para Internet Explorer y Edge */
     }
 
+
+    /*------------------------carrusel----------------------------*/
+    .carousel-buttons{
+        display: none;
+    }
+    
 }

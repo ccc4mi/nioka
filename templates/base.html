@@ -15,36 +15,27 @@
     <div class="bg">
         <div class="overlay"></div>
     </div>
-
-   <!-- <nav class="navbar">
-       <div class="navbar-logo">
-            <a href="{{url_for('inicio')}}">
-                <img src="static/logo.png"  alt="Logo">
-            </a>
-        </div>
-        <ul class="navbar-menu">
-            <li class="alt-feed">
-                <a href="{{url_for ('feed')}}">
-                    <img src="static/feed.png" id="feed" alt="feed" height="18">
-                </a>
-            </li>
-            <li class="alt-ig">
-                <a href="https://www.instagram.com/ccc4.mi/">
-                    <img src="static/IG.png" id="ig" alt="instagram" height="18">
-                </a>
-            </li>
-            
-            <li class="alt-user">
-                <a href="{{ url_for('iniciarSesion') }}"> 
-                    <img src="static/user.png" alt="Iniciar sesion"  height="18">
-                </a>
-            </li>
-        </ul>
-    </nav>-->
     
     <div class="main-content">
         {% block content %}{% endblock %}
     </div>
+
+     <!-- Popup de bienvenida -->
+     <div id="popup" class="popup" data-mostrar-popup="{{ mostrar_popup | tojson }}">
+         <div class="popup-content">
+             <div class="carousel">
+                 <img src="{{ url_for('static', filename='tutorial1.png') }}" class="carousel-image active" alt="Paso 1">
+                 <img src="{{ url_for('static', filename='tutorial2.png') }}" class="carousel-image" alt="Paso 2">
+                 <img src="{{ url_for('static', filename='tutorial3.png') }}" class="carousel-image" alt="Paso 3">
+             </div>
+             <div class="carousel-buttons">
+                 <button id="prevBtn">&lt;</button>
+                 <button id="nextBtn">&gt;</button>
+             </div>
+             <button id="acceptBtn" class="accept-btn">Aceptar</button>
+         </div>
+     </div>
+     
     <script src="static/1.js"></script>
 </body>
 </html>

@@ -39,9 +39,9 @@ def inicio():
         except Exception as e:
             db.session.rollback()
         return redirect(url_for('inicio'))
+    mostrar_popup=True
     
-    
-    return render_template('inicio.html')
+    return render_template('inicio.html',mostrar_popup=mostrar_popup)
 
 #----------------------------------Feed------------------------------------------
 @app.route('/feed', methods=['GET', 'POST'])
