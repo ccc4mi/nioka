@@ -1,7 +1,7 @@
 let highestZIndex = 10; // Inicia con el valor base más alto
 
 document.addEventListener('DOMContentLoaded', function () {
-    const dragItems = document.querySelectorAll('.drag-item , drag-container');
+    const dragItems = document.querySelectorAll('.drag-item , .drag-container');
     let offsetX, offsetY;
     let isDragging = false;
     let activeItem = null;
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         menuToggle.classList.toggle('active'); // Rotación del ícono
     });
 
-    /* POPUP */
+    /* ----------------------------------POPUP ----------------------------------------*/
     const popup = document.getElementById('popup');
 
     if (popup) {
@@ -74,100 +74,148 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Configurar el carrusel
-    const images = document.querySelectorAll('.carousel-image');
+    const images = document.querySelectorAll('#popup .carousel-image');
+    const acceptBtn = document.getElementById('acceptBtn');
     let currentImageIndex = 0;
+
+    // Ocultar el botón de cerrar al inicio
+    acceptBtn.style.display = 'none';
 
     // Función para mostrar la imagen activa
     function showImage(index) {
         images.forEach((img, i) => {
-            img.classList.remove('active');
-            if (i === index) {
-                img.classList.add('active');
-            }
+            img.classList.toggle('active', i === index);
         });
+
+        // Mostrar el botón solo si es el último slide
+        if (index === images.length - 1) {
+            acceptBtn.style.display = 'block';
+        } else {
+            acceptBtn.style.display = 'none';
+        }
     }
 
     // Función para cambiar a la siguiente imagen
-    document.getElementById('nextBtn').addEventListener('click', function() {
+    document.getElementById('nextBtn').addEventListener('click', function () {
         currentImageIndex = (currentImageIndex + 1) % images.length;
         showImage(currentImageIndex);
     });
 
     // Función para cambiar a la imagen anterior
-    document.getElementById('prevBtn').addEventListener('click', function() {
+    document.getElementById('prevBtn').addEventListener('click', function () {
         currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
         showImage(currentImageIndex);
     });
 
     // Cerrar el popup
-    document.getElementById('acceptBtn').addEventListener('click', function() {
+    acceptBtn.addEventListener('click', function () {
         popup.style.display = 'none'; // Ocultar el popup
+        restartGif();
     });
 
-
-    /*--------------swipe del carrousel----------*/
-    // Variables para el control del swipe
-    let startX = 0;
-    let endX = 0;
-
-    // Detectar el inicio del toque
-    document.querySelector('.carousel').addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX;
-    });
-
-    // Detectar el movimiento del toque
-    document.querySelector('.carousel').addEventListener('touchmove', function(e) {
-        endX = e.touches[0].clientX;
-    });
-
-    // Detectar cuando se suelta el toque y determinar la dirección del swipe
-    document.querySelector('.carousel').addEventListener('touchend', function() {
-        let diff = startX - endX;
-
-        if (Math.abs(diff) > 50) { // Umbral mínimo para detectar un swipe
-            if (diff > 0) {
-                // Swipe hacia la izquierda → Siguiente imagen
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-            } else {
-                // Swipe hacia la derecha → Imagen anterior
-                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            }
-            showImage(currentImageIndex);
+    // Popup móvil
+    const popupMobile = document.getElementById('popup-mobile');
+    if (popupMobile) {
+        // Mostrar popup si corresponde
+        const mostrarPopupMobile = popupMobile.getAttribute('data-mostrar-popup') === "true";
+        if (mostrarPopupMobile) {
+            popupMobile.style.display = 'flex';
         }
-    });
 
+        const mobileImages = popupMobile.querySelectorAll('.carousel-image');
+        const dots = popupMobile.querySelectorAll('.dot');
+        const acceptBtnMobile = document.getElementById('acceptBtnMobile');
+        let currentMobileIndex = 0;
 
-    /*----------------------ir arriba--------------------*/
-    
-    const scrollableDiv = document.querySelector(".scrollable-window");
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        // Ocultar el botón de cerrar al inicio
+        acceptBtnMobile.style.display = 'none';
 
-    if (!scrollableDiv || !scrollToTopBtn) {
-        console.error("No se encontraron los elementos scrollable-window o scrollToTopBtn");
-        return;
+        // Función para actualizar la diapositiva y los puntitos
+        function showMobileSlide(index) {
+            if (index < 0 || index >= mobileImages.length) return;
+
+            mobileImages.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+
+            currentMobileIndex = index;
+
+            // Mostrar el botón solo si es el último slide
+            if (index === mobileImages.length - 1) {
+                acceptBtnMobile.style.display = 'block';
+            } else {
+                acceptBtnMobile.style.display = 'none';
+            }
+        }
+
+        // Agregar evento de clic a cada dot
+        dots.forEach(dot => {
+            dot.addEventListener('click', function () {
+                const index = parseInt(this.getAttribute('data-index'), 10);
+                showMobileSlide(index);
+            });
+        });
+
+        // Swipe para cambiar de diapositiva
+        let startXMobile = 0;
+        let endXMobile = 0;
+        const carouselMobile = popupMobile.querySelector('.carousel');
+
+        carouselMobile.addEventListener('touchstart', function (e) {
+            startXMobile = e.touches[0].clientX;
+        });
+
+        carouselMobile.addEventListener('touchmove', function (e) {
+            endXMobile = e.touches[0].clientX;
+        });
+
+        carouselMobile.addEventListener('touchend', function () {
+            const diff = startXMobile - endXMobile;
+            if (Math.abs(diff) > 50) { // Umbral para detectar swipe
+                if (diff > 0) {
+                    // Swipe izquierda: siguiente imagen
+                    const nextIndex = (currentMobileIndex + 1) % mobileImages.length;
+                    showMobileSlide(nextIndex);
+                } else {
+                    // Swipe derecha: imagen anterior
+                    const prevIndex = (currentMobileIndex - 1 + mobileImages.length) % mobileImages.length;
+                    showMobileSlide(prevIndex);
+                }
+            }
+        });
+
+        // Cerrar popup al hacer clic en el botón de aceptar
+        acceptBtnMobile.addEventListener('click', function () {
+            popupMobile.style.display = 'none';
+            restartGif();
+        });
     }
 
-    scrollableDiv.addEventListener("scroll", function () {
-        console.log("scrollTop actual:", scrollableDiv.scrollTop); // Verifica si se detecta el scroll
-
-        if (scrollableDiv.scrollTop > 100) {
-            console.log("Mostrando botón");
-            scrollToTopBtn.style.display = "block";
-        } else {
-            console.log("Ocultando botón");
-            scrollToTopBtn.style.display = "none";
+    /*---------------------------- Reiniciar GIF ------------------------*/
+    function restartGif() {
+        let gif = document.getElementById("gif");
+        if (gif) {
+            let src = gif.src.split("?")[0]; // Limpia cualquier parámetro viejo
+            gif.src = src + "?t=" + new Date().getTime(); // Fuerza la recarga
         }
+    }
+    
+    /* Reiniciar el GIF al cargar la página */
+    window.onload = restartGif;
+    
+    /* Reiniciar el GIF al cerrar el popup */
+    document.getElementById('acceptBtn').addEventListener('click', function () {
+        document.getElementById('popup').style.display = 'none';
+        restartGif();
+    });
+    
+    /* Para la versión móvil */
+    document.getElementById('acceptBtnMobile').addEventListener('click', function () {
+        document.getElementById('popup-mobile').style.display = 'none';
+        restartGif();
     });
 
-    scrollToTopBtn.addEventListener("click", function () {
-        console.log("Botón presionado, volviendo arriba");
-        scrollableDiv.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-    
-    
 });
-
-

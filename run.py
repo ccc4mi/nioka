@@ -112,7 +112,10 @@ def mensajes():
     else:
         return redirect(url_for('userHome'))
     
-
+#-------------------------------Acerca de-------------------------------------------
+@app.route('/acercaDe', methods=['GET'])
+def acercaDe():
+    return render_template('acercaDe.html')
 
 
 if __name__ == '__main__':

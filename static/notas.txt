@@ -1,0 +1,19 @@
+Probables cambios a fututo:
+-Integración de api para moderar los mensajes y automatización del contenido del feed de acuerdo al contenido de los mensajes (Perspective API?)
+-Aplicación de un easter egg para la version desktop(snake97)
+
+#------actualizaciones-------
+-opacar fondo al presionar el menú de Hamburguesa
+-triguerear el celu una vez que se da a --aceptar-- en el tuto del modal
+-Verificar que render pueda hacer cambios en la base de datos
+-Página --Acerca de-- --->
+    >probar la utilización de css scroll driven animation 
+
+#------Desarrollo conceptual--
+-Acerca de
+-tutorial
+
+#------Diseño-----------------
+-De tutorial desktop y móvil
+-Rediseño de íconos desktop
+

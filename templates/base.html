@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=PT+Sans+Caption:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="bg">
@@ -19,14 +22,33 @@
     <div class="main-content">
         {% block content %}{% endblock %}
     </div>
-
-     <!-- Popup de bienvenida -->
-     <div id="popup" class="popup" data-mostrar-popup="{{ mostrar_popup | tojson }}">
+     <!-- Popup de bienvenida mobile-->
+     <div id="popup-mobile" class="popup mobile-only" data-mostrar-popup="{{ mostrar_popup_mobile | default(false) | tojson }}">
+        <div class="popup-content">
+          <div class="carousel">
+            <img src="{{ url_for('static', filename='Mtutorial1.png') }}" class="carousel-image active" alt="Paso 1">
+            <img src="{{ url_for('static', filename='Mtutorial2.png') }}" class="carousel-image" alt="Paso 2">
+            <img src="{{ url_for('static', filename='Mtutorial3.png') }}" class="carousel-image" alt="Paso 3">
+            <img src="{{ url_for('static', filename='Mtutorial4.png') }}" class="carousel-image" alt="Paso 4">
+          </div>
+          <!-- Paginación con puntitos -->
+          <div class="carousel-pagination">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+          </div>
+          <button id="acceptBtnMobile" class="accept-btn">Aceptar</button>
+        </div>
+      </div>
+     <!-- Popup de bienvenida desktop-->
+     <div id="popup" class="popup desktop-only" data-mostrar-popup="{{ mostrar_popup | tojson }}">
          <div class="popup-content">
              <div class="carousel">
                  <img src="{{ url_for('static', filename='tutorial1.png') }}" class="carousel-image active" alt="Paso 1">
                  <img src="{{ url_for('static', filename='tutorial2.png') }}" class="carousel-image" alt="Paso 2">
                  <img src="{{ url_for('static', filename='tutorial3.png') }}" class="carousel-image" alt="Paso 3">
+                 <img src="{{ url_for('static', filename='tutorial4.GIF') }}" class="carousel-image" alt="Paso 4">
              </div>
              <div class="carousel-buttons">
                  <button id="prevBtn">&lt;</button>

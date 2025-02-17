@@ -31,11 +31,13 @@
 
     <div class="drag-container">
         <form class="note-form" action="{{ url_for('inicio') }}" method="post">
+            <img id="gif" src="{{ url_for('static', filename='on.gif') }}" alt="GIF animado">
             <label for="texto"></label>
             <textarea id="texto" name="texto" required></textarea>
-            <button type="submit">
+            <button type="submit"></button> <!-- Ahora correctamente cerrado -->
         </form>
     </div>
+    
 
 
     <a href="{{ url_for('iniciarSesion') }}" class="drag-link">
@@ -51,9 +53,12 @@
         </div>
     </a>
     
-    <div class="drag-item" style="top: 11%; left: 16%;">
-        <img class="drag-image" id="Encendedor" src="static/encendedor.png" alt="Imagen para Arrastrar">
-    </div>
+    <a href="{{ url_for('feed') }}" class="drag-link">
+        <div class="drag-item" style="top: 11%; left: 16%;">
+            <img class="drag-image" id="Encendedor" src="static/encendedor.png" alt="Imagen para Arrastrar">
+            <div class="title" id="encd">Feed</div>
+        </div>
+    </a>
     
     <a href="https://www.instagram.com/ccc4.mi/" class="drag-link">
         <div class="drag-item" style="top: 32%; left: 82%;">
@@ -62,10 +67,10 @@
         </div>
     </a>
     
-    <a href="{{ url_for('feed') }}" class="drag-link">
+    <a href="{{ url_for('acercaDe') }}" class="drag-link">
         <div class="drag-item" style="top: 45%; left: 67%;">
             <img class="drag-image" id="m50c" src="static/50c.png" alt="Imagen para Arrastrar">
-            <div class="title" id="tm50c">Feed</div>
+            <div class="title" id="tm50c">Acerca de</div>
         </div>
     </a>
     

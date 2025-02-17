@@ -93,7 +93,7 @@ body, html {
 }
 
 .popup-content {
-    background: #F8F2F2;
+    background: #FCFCFC;
     padding: 0px;
     border-radius: 20px;
     text-align: center;
@@ -112,7 +112,6 @@ body, html {
 
 .carousel-image {
     display: none;
-    width: 100%;
     max-height: 60vh;
     object-fit: contain;
 }
@@ -125,7 +124,7 @@ body, html {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .carousel-buttons button {
@@ -159,6 +158,12 @@ body, html {
     font-size: 16px;
     margin-top: 0px;
     margin-bottom: 10px;
+    position: relative;
+    left: 38%;
+}
+
+#acceptBtn {
+    display: none;
 }
 
 .accept-btn:hover {
@@ -318,15 +323,15 @@ body, html {
     margin-top: -10%;
     transform: translateX(-50%); 
     background-color: transparent;
-    color: #f2f2f2;
-    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    color: #1f3650;
+    text-shadow: 1px 1px 2px rgb(255, 255, 255);
     font-size: 14px;
     font-weight: 200;
     font-family: Arial, Helvetica, sans-serif;
     z-index: 20;
 }
 
-/* Posicionamiento específico para cada imagen */
+/* Posicionamiento específico para cada i */
 #logo {
     top: 6%;
     left: 3%;
@@ -350,11 +355,18 @@ body, html {
 }
 
 #Encendedor {
+    position: relative;
     top: 11%;
     left: 16%;
     cursor: url('drag_cursor.png') 16 16, move;
     max-width: 789px;
     max-height: 420px;
+}
+
+#encd{
+    position:relative;
+    left: 130%;
+
 }
 
 #m1pe {
@@ -374,7 +386,7 @@ body, html {
 #m50c {
     position: relative;
     top: 45%;
-    left: -17%;
+    left: -10%;
     cursor: url('drag_cursor.png') 16 16, move;
     max-width: 325px;
     max-height: 325px;
@@ -418,7 +430,7 @@ body, html {
 }
 
 .note-form {
-    background: url('on.gif') no-repeat center;
+    background: none;
     position: absolute;
     top:21.2%;
     left: 2.9%;
@@ -491,8 +503,7 @@ body, html {
     left: 50%; 
     transform: translate(-50%, -50%);
     color:#ffffff;
-    font-family: 'Roboto', sans-serif;
-    font-optical-sizing: auto;
+    font-family: "PT Sans Caption", serif;
     font-weight: 400;
     font-style: normal;
     font-variation-settings:"wdth" 100;
@@ -524,8 +535,9 @@ input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0px 4px 5px -3px #474747;
-    font-family:"Roboto",sans-serif;
-    font-weight: 600;
+    font-family: "PT Sans Caption", serif;
+    font-weight: 700;
+    font-style: normal;
     font-size: 14px;
 }
 
@@ -570,7 +582,9 @@ input[type="submit"]:hover{
     overflow-y: scroll;
     border: none;
     padding: 0px;
-    font-family: "Archivo", sans-serif;
+    font-family: "PT Sans", serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: medium;
     color: #333;
     scrollbar-width: none; /* Para Firefox */
@@ -778,7 +792,9 @@ input[type="submit"]:hover{
         height: 100%;
         background-color: #4A4B63;
         color: white;
-        font-weight: bold;
+        font-family: "PT Sans Caption", serif;
+        font-weight: 700;
+        font-style: normal;
         padding: 20px;
         box-shadow: -2px 0 5px rgba(0,0,0,0.5);
         transition: right 0.3s ease; /* Animación de deslizamiento desde la derecha */
@@ -840,7 +856,7 @@ input[type="submit"]:hover{
     }
 
     .Texto{
-        display: none; /* Ocultar el texto */
+        display: none; 
     }
 
     .disclaimer{
@@ -850,23 +866,23 @@ input[type="submit"]:hover{
         left: 4.5%;
         font-family: Arial, sans-serif;
         font-size:medium;
-        font-weight:100;
+        font-weight:500;
         text-align: center;
-        color: #b6b5a0;
+        color: #6c6b5b;
         max-width: 90%;
     }
 
     .mobile-logo {
         display: block;
         position: absolute;
-        top: 3.5%;  /* Ajusta la posición vertical */
-        left: 6%; /* Ajusta la posición horizontal */
-        z-index: 999; /* Asegura que el logo esté encima de otros elementos */
+        top: 3.5%;  
+        left: 6%; 
+        z-index: 999; 
     }
 
-    /* Puedes ajustar el tamaño del logo para la versión móvil */
+    
     .mobile-logo img {
-        width: 130px;  /* Ajusta el tamaño del logo para móvil */
+        width: 130px;  
     }
 
 
@@ -922,4 +938,46 @@ input[type="submit"]:hover{
         display: none;
     }
     
+    /* Estilos para la paginación con puntitos */
+    .carousel-pagination {
+        text-align: center;
+        margin: 10px 0;
+     }
+  
+    .dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        margin: 0 5px;
+        background-color: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .dot.active {
+        background-color: #4A4B63;
+    }
+    
+    /* Botón de aceptar */
+    .accept-btn {
+        background: transparent;
+        color: #3333339d;
+        padding: 15px 25px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        left: 33%;
+    }
+    
+    
+    .mobile-only {
+        display: flex;
+    }
+    .desktop-only {
+        display: none !important;
+    }
 }

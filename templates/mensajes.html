@@ -9,8 +9,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=PT+Sans+Caption:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!--Móvil-->
+    <button id="menu-toggle" class="hamburger-menu">
+        ☰
+    </button>
+
+    <nav id="mobile-menu" class="hidden">
+        <ul>
+            <li><a href="{{ url_for('inicio') }}">Home</a></li>
+            <li><a href="{{ url_for('userHome') }}">Nueva Enrtada</a></li>
+            <li><a href="{{ url_for('feed') }}">Feed</a></li>
+            
+        </ul>
+    </nav>
+
+    <div class="mobile-logo">
+        <a href="{{url_for('inicio')}}">
+            <img src="static/logo1.png" alt="Logo">
+        </a>
+    </div>
+
+    <!--Desktop-->
+
     <div class="bg">
         <div class="overlay"></div>
     </div>
