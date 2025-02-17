@@ -124,7 +124,7 @@ body, html {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .carousel-buttons button {
@@ -151,7 +151,8 @@ body, html {
 .accept-btn {
     background:transparent;
     color: #3333339d;
-    padding: 15px 25px;
+    padding: 10px 25px;
+    padding-top: 0%;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -866,9 +867,9 @@ input[type="submit"]:hover{
         left: 4.5%;
         font-family: Arial, sans-serif;
         font-size:medium;
-        font-weight:500;
+        font-weight:300;
         text-align: center;
-        color: #6c6b5b;
+        color: #8d8c7a;
         max-width: 90%;
     }
 
@@ -948,7 +949,7 @@ input[type="submit"]:hover{
         display: inline-block;
         width: 7px;
         height: 7px;
-        margin: 0 5px;
+        margin: 0 5px 10px;
         background-color: #ccc;
         border-radius: 50%;
         cursor: pointer;
@@ -963,14 +964,15 @@ input[type="submit"]:hover{
     .accept-btn {
         background: transparent;
         color: #3333339d;
-        padding: 15px 25px;
+        padding: 10px 25px;
+        padding-top: 0%;
         border: none;
         cursor: pointer;
         border-radius: 5px;
         font-size: 16px;
         margin-top: 0px;
         margin-bottom: 10px;
-        left: 33%;
+        left: 31%;
     }
     
     
