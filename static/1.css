@@ -457,8 +457,8 @@ body, html {
 }
 
 .note-form textarea {
-    height:80%;
-    width:95%; 
+    height:57%;
+    width:70%; 
     padding: 5px;
     border: none;
     resize: none;
@@ -467,9 +467,11 @@ body, html {
     color: #333333cf;
     font-family: "NK", sans-serif;
     outline: none;
-    z-index:300;
+    z-index:3000;
     scrollbar-width: none; /* Para Firefox */
     -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+    position: inherit;
+    left: 13%;
     
 }
 
